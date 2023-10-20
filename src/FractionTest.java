@@ -15,8 +15,6 @@ class FractionTest {
         assert test_numerators.length == test_denominators.length;
         test_fractions = new Fraction [test_numerators.length];
         for (int i = 0; i < test_numerators.length; i++) {
-//            System.out.println("Numerator: " + test_numerators[i]);
-//            System.out.println("Denominator: " + test_denominators[i]);
             test_fractions[i] = new Fraction(test_numerators[i], test_denominators[i]);
         }
     }

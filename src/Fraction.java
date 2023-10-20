@@ -9,9 +9,29 @@ public class Fraction {
             denominator = 1;
         }
         else if (top < 0 || bottom < 0) {
-            if (bottom < 0) {
+            int gcd = 0;
+            if (bottom < 0 && top > 0) {
+                int positiveBottom = bottom * -1;
+                gcd = find_gcd(top, positiveBottom);
+                top = top / gcd;
+                bottom =  (-1 * (positiveBottom / gcd)); // makes bottom negative after simplifying
                 numerator = top * -1;
                 denominator = bottom * -1;
+            }
+            else if (top < 0 && bottom > 0){
+                int positiveTop = top * -1;
+                gcd = find_gcd(positiveTop, bottom);
+                top = (-1 * (positiveTop / gcd));
+                bottom = bottom / gcd;
+                numerator = top;
+                denominator = bottom;
+            }
+            else {
+                int positiveTop = top * -1;
+                int positiveBottom = bottom * -1;
+                gcd = find_gcd(positiveTop, positiveBottom);
+                numerator = positiveTop / gcd;
+                denominator = positiveBottom / gcd;
             }
         }
         else {
