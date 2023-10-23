@@ -1,14 +1,18 @@
 import java.util.Objects;
 public class Fraction {
+    private void DIANOGSTIC(String diagnostic) {
+//        System.out.println("DIAGNOSTIC OUTPUT: \n" + diagnostic);
+    }
     private int numerator;
     private int denominator;
 
     public Fraction(int top, int bottom) {
+        DIANOGSTIC("top of constructor");
         if (top == 0 || bottom == 0) {
             numerator = 0;
             denominator = 1;
         }
-        else if (top < 0 || bottom < 0) {
+        else if (top < 0 || bottom < 0) { // logic equivalent to Math.abs()
             int gcd = 0;
             if (bottom < 0 && top > 0) {
                 int positiveBottom = bottom * -1;
@@ -42,7 +46,10 @@ public class Fraction {
     }
 
     private int find_gcd(int a, int b) {
+        DIANOGSTIC("top of find_gcd");
+//        assert a > 0 && b > 0;
         while (a != b) {
+            DIANOGSTIC("top of loop in find_gcd, a: " + a + ", b: " + b);
             if (a > b) {
                 a -= b;
             }
@@ -59,6 +66,10 @@ public class Fraction {
 
     public int getDenominator() {
         return denominator;
+    }
+
+    public double getAsDouble() {
+        return (double)numerator / denominator;
     }
 
     @Override
